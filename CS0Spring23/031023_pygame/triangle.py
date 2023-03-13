@@ -1,9 +1,14 @@
+# pick a point
+# randomly choose a vertix of the triangle
+# plot a point halfway between the triangle vertix and the original position
+# from the new position, repeat
+
 import pygame
 import random
 
 pygame.init()
-width = 1600
-height = 900
+width = 1000
+height = 600
 iterations = 10
 
 window = pygame.display.set_mode((width, height))
