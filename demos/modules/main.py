@@ -6,7 +6,7 @@ Declares question, answer, and areaOfCircle function
 import math # first import standard library modules
 import module2 # then import user-defined modules
 # what happens if the imported the names following way? Uncomment, run the module and find out...
-# from module2 import *
+from module2 import *
 
 # global variables
 question = "What is the meaning of Life, the Universe, and Everything?"
