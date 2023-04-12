@@ -67,6 +67,7 @@ t5 = datetime(year = 2019, month = 6, day = 10, hour = 5, minute = 55, second = 
 t6 = t4 - t5
 print("t6 =", t6)
 
+print("Type of t4 =", type(t4))
 print("Type of t3 =", type(t3)) 
 print("Type of t6 =", type(t6))
 
