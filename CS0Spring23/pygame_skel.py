@@ -6,13 +6,24 @@ surface_size = 800
 main_surface = pygame.display.set_mode((surface_size,surface_size))
 my_clock = pygame.time.Clock()
 
-def koch(t, order, size):
+def koch(start, heading, angle, order, size):
+
+    color = (0,255,0)
+    p1 = start
+    p2 = ()
+    p2_x = p1[0] + size*math.cos(angle*math.pi/180)
+    p2_y = p1[1] + size*math.sin(angle*math.pi/180)
+    p2 = (p2_x, p2_y)    
     if order == 0:
-        t.forward(size)
-    else:
-        for angle in [60, -120, 60, 0]:
-           koch(t, order-1, size/3)
-           t.left(angle)
+        pygame.draw.line(main_surface, color, p1, p2)
+        return p2
+    if(order > 0):
+        p2 = start
+        for angles in [0, -60, 120, -60]:
+            angle += angles
+            p2 = koch(p2, order-1, size/3, angle)
+            return p2
+        #   t.left(angle)
 
 def gameloop():
 
@@ -24,13 +35,13 @@ def gameloop():
             break
 
         # Draw everything
-        main_surface.fill((30, 0, 30)) #fill background color
+        #main_surface.fill((30, 0, 30)) #fill background color
         # Draw stuff
-        color = (0,255,0)
-        p1 = (0,0)
-        p2 = (surface_size,surface_size)
-        pygame.draw.line(main_surface, color, p1, p2)
-
+        #color = (0,255,0)
+        #p1 = (0,0)
+        #p2 = (surface_size,surface_size)
+        #pygame.draw.line(main_surface, color, p1, p2)
+        koch((surface_size*0.05, surface_size//2), 0, 1, surface_size*0.9)
 
         pygame.display.flip() # Put all the drawing up to the display
         my_clock.tick(120) #Keeps a contant framerate for smoother animation
