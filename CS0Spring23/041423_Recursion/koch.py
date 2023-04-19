@@ -16,13 +16,13 @@ tess = turtle.Turtle()               # Create our favorite turtle
 tess.backward(150)
 tess.left(90) 
 
-koch(tess, 4, 200)
+koch(tess, 2, 200)
 tess.right(90)
-koch(tess, 4, 200)
+koch(tess, 2, 200)
 tess.right(90)
-koch(tess, 4, 200)
+koch(tess, 2, 200)
 tess.right(90)
-koch(tess, 4, 200)
+koch(tess, 2, 200)
 tess.right(90)
 
 # Now we need to tell the window to start listening for events,

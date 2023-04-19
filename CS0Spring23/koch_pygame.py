@@ -24,7 +24,6 @@ def koch(start, heading, angle, order, size):
             angle += angles
             p2 = koch(p2, heading, angle, order-1, size/3)
         return p2
-        #   t.left(angle)
 
 def gameloop(first):
     
