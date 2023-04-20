@@ -27,6 +27,8 @@ def koch(start, heading, angle, order, size):
 
 def gameloop(first):
     
+    theta = 0
+    scale = 0.09
     while True:
 
         # Handle evente from keyboard, mouse, etc.
@@ -42,16 +44,25 @@ def gameloop(first):
         #p2 = (surface_size,surface_size)
         #pygame.draw.line(main_surface, color, p1, p2)
         
-        if(first == 1): #only draw the fractal once
-            last = koch((surface_size*0.05, surface_size//2), 0, 0, 5, surface_size*0.9)
+        if(first == 1):
+            last = koch((surface_size//2, 0), 0, 0, 5, surface_size*scale)
+            first = 2
+        elif(first == 2):
+            last = koch(last, theta, 0, 5, surface_size*scale)
         
-        
-        first = False
-        
+        theta += 10
+        if(theta >= 360):
+            theta = 0
+            scale -= 0.01
+        if(scale <= 0):
+            first = 0
+        #    theta = 0
+            #main_surface.fill((30, 0, 30))
+
         pygame.display.flip() # Put all the drawing up to the display
         my_clock.tick(120) #Keeps a contant framerate for smoother animation
         # If you don't include the above line, the loop executes as fast as it can
 
-first = True
+first = 1
 gameloop(first)
 pygame.quit()
