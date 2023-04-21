@@ -29,6 +29,7 @@ def gameloop(first):
     
     theta = 0
     scale = 0.09
+    y=0
     while True:
 
         # Handle evente from keyboard, mouse, etc.
@@ -45,7 +46,7 @@ def gameloop(first):
         #pygame.draw.line(main_surface, color, p1, p2)
         
         if(first == 1):
-            last = koch((surface_size//2, 0), 0, 0, 5, surface_size*scale)
+            last = koch((surface_size//2, y), 0, 0, 5, surface_size*scale)
             first = 2
         elif(first == 2):
             last = koch(last, theta, 0, 5, surface_size*scale)
@@ -55,6 +56,11 @@ def gameloop(first):
             theta = 0
             scale -= 0.01
         if(scale <= 0):
+            first = 1
+            scale = 0.09
+            theta = 0
+            y+=100
+        if(y>=surface_size):
             first = 0
         #    theta = 0
             #main_surface.fill((30, 0, 30))
