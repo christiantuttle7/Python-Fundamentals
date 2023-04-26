@@ -1,6 +1,7 @@
 import datetime
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as dp
 
 with open('weather.csv') as file:
     line = file.readline() # read in first line as string
@@ -12,6 +13,8 @@ with open('weather.csv') as file:
 
 line_num = 0
 new_data = []
+dates = []
+temps = []
 
 # finished with file, I have all the data
 for row in lines:
@@ -19,6 +22,8 @@ for row in lines:
     data = data[0:2] #slice out the first two elements
     
     now_time = datetime.datetime.strptime(data[0], '%m/%d/%Y %H:%M')
+    dates.append(now_time)
+    temps.append(float(data[1]))
     now_temp = float(data[1])
     if(line_num == 0):
         last_time = now_time
@@ -48,6 +53,13 @@ for t in new_data:
 new_file = open('out.csv', 'w')
 new_file.writelines(data_list)
 new_file.close()
+
+temp_arr = np.asarray(temps)
+date_arr = np.asarray(dates)
+
+plt.plot(temp_arr)
+plt.show()
+
 
     
 
