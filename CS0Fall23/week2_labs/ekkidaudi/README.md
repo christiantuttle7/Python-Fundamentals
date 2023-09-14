@@ -1,8 +1,7 @@
-# CS0 Lab - Math
-
+# CS0 Lab - EKKIDAUDI
 Possible Points: 100
 
-Write a Python program to solve the Kattis problem: addtwonumbers [https://open.kattis.com/problems/addtwonumbers](https://open.kattis.com/problems/addtwonumbers). Read the problem statement carefully to design a correct solution.
+Write a Python program to solve the Kattis problem: EKKIDAUDI [https://open.kattis.com/problems/ekkidaudi](https://open.kattis.com/problems/ekkidaudi). Read the problem statement carefully to design a correct solution.
 
 ### Lab Instructions
 
